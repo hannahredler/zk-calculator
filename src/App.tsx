@@ -30,6 +30,7 @@ function App() {
           className={`border border-px rounded p-2  ${
             disabled ? "pointer-events-none" : "hover:bg-green-600"
           }`}
+          onClick={() => {}}
         >
           Calculate!
         </button>

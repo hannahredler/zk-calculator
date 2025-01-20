@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "build:circuits": "for circuit in circuits/*.circom; do circom $circuit --r1cs --sym --wasm -o circuits/build;done"
+    "build:circuits": "for circuit in circuits/*.circom; do circom $circuit --r1cs --sym --wasm -o circuits/build;done",
+    "export:sample-zkey": "for circuit in circuits/build/*.r1cs; do snarkjs groth16 setup $circuit circuits/powersOfTau28_hez_final_15.ptau circuits/zkkeys/$(basename -- $circuit .r1cs).zkey;done",
+    "export:verifier": "for zkey in circuits/zkkeys/*.zkey; do snarkjs zkey export solidityverifier $zkey circuits/verifiers/$(basename -- $zkey .zkey | perl -nE 'say ucfirst').sol;done",
+    "build:contracts": "yarn compile && yarn export:sample-zkey && yarn export:verifier"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
