@@ -1,0 +1,31 @@
+import { useState } from "react";
+
+export const NumberInput: React.FC<{
+  setValue: (val: number | null) => void;
+  label?: string;
+}> = ({ setValue, label }) => {
+  const [innerValue, setInnerValue] = useState<string>("");
+
+  return (
+    <div className="flex flex-col">
+      {label && <label htmlFor={label}>{label}</label>}
+      <input
+        id={label}
+        className="appearance-none border border-px border-red-400 rounded outline-none bg-transparent h-5"
+        value={innerValue}
+        onChange={(event) => {
+          let val = Number(event.target.value);
+
+          if (event.target.value === "") {
+            setInnerValue("");
+            setValue(null);
+          } else if (Number.isNaN(val)) return;
+          else {
+            setInnerValue(event.target.value);
+            setValue(val);
+          }
+        }}
+      />
+    </div>
+  );
+};
