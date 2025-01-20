@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@types/node": "^22.10.7",
     "@zk-kit/baby-jubjub": "^1.0.3",
     "@zk-kit/eddsa-poseidon": "^1.1.0",
