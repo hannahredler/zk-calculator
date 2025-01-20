@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:circuits": "for circuit in circuits/*.circom; do circom $circuit --r1cs --sym --wasm -o circuits/build;done"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
