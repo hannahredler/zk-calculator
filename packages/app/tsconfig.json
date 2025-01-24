@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json", // Points to the base tsconfig in the root
+  "compilerOptions": {
+    "rootDir": "./src", // Set the root directory for app's source files
+    "outDir": "./dist", // Set the output directory for compiled files
+    "baseUrl": ".", // Base URL for imports
+    "paths": {
+      "@app/*": ["src/*"] // Alias configuration, can adjust based on app folder structure
+    },
+    "types": ["vite/client"], // Add type declarations needed by Vite (e.g., vite-env.d.ts)
+    "skipLibCheck": true, // Optional: skips type checking of declaration files (can speed up builds)
+    "resolveJsonModule": true, // Optional: allows importing JSON files in TypeScript
+    "allowImportingTsExtensions": true,
+    "noEmit": false
+  },
+
+  "include": [
+    "src", // Include app's src folder
+    "vite-env.d.ts" // Include global Vite types
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules folder
+    "dist" // Exclude output folder
+  ]
+}
