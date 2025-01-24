@@ -1,7 +1,22 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext", // Use the latest ECMAScript features
+    "module": "ESNext", // Use ESNext modules for bundling (recommended for modern tools)
+    "lib": ["DOM", "ESNext"], // Include the DOM and ESNext libraries (required for frontend apps)
+    "jsx": "react-jsx", // Supports the new JSX transform for React 17+
+    "moduleResolution": "Node", // Resolve modules using Node.js-style resolution
+    "esModuleInterop": true, // Allows default imports from non-ES modules
+    "skipLibCheck": true, // Skips type-checking of declaration files (faster)
+    "strict": true, // Enables strict type-checking for improved type safety
+    "forceConsistentCasingInFileNames": true, // Enforces consistent file name casing
+    "resolveJsonModule": true, // Allows importing JSON files
+    "noEmit": true, // Prevents emitting files, useful for type-checking and compilation only
+    "isolatedModules": true, // Ensures that each file can be transpiled independently
+    "baseUrl": ".", // Base path for resolving non-relative modules
+    "paths": {
+      "@/*": ["packages/*/src"] // Monorepo-wide path alias to reference all package source directories
+    }
+  },
+  "include": ["packages/*/src/**/*"], // Include all source files across the packages
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist (output) directories
 }
