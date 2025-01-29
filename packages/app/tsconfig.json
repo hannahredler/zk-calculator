@@ -11,7 +11,7 @@
     "skipLibCheck": true, // Optional: skips type checking of declaration files (can speed up builds)
     "resolveJsonModule": true, // Optional: allows importing JSON files in TypeScript
     "allowImportingTsExtensions": true,
-    "noEmit": false
+    "noEmit": true
   },
 
   "include": [
