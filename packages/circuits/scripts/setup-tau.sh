@@ -35,5 +35,3 @@ snarkjs powersoftau prepare phase2 ./trusted-setup/my_powersOfTau_beacon.ptau ./
 
 # verify final output
 snarkjs powersoftau verify ./trusted-setup/my_powersOfTau_final.ptau
-
-
