@@ -11,7 +11,7 @@ export const NumberInput: React.FC<{
       {label && <label htmlFor={label}>{label}</label>}
       <input
         id={label}
-        className="appearance-none border border-px border-red-400 rounded outline-none bg-transparent h-5"
+        className="appearance-none border border-px border-red-400 rounded outline-none bg-transparent h-5 w-28 p-2 py-3"
         value={innerValue}
         onChange={(event) => {
           let val = Number(event.target.value);
