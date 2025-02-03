@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:circuits": "for circuit in circuits/*.circom; do circom $circuit --r1cs --sym --wasm -o build;done",
-    "export:sample-zkey": "for circuit in build/*.r1cs; do snarkjs groth16 setup $circuit powersOfTau28_hez_final_15.ptau zkkeys/$(basename -- $circuit .r1cs).zkey;done",
-    "export:verifier": "for zkey in zkkeys/*.zkey; do snarkjs zkey export solidityverifier $zkey verifiers/$(basename -- $zkey .zkey | perl -nE 'say ucfirst').sol;done",
-    "build:contracts": "yarn compile && yarn export:sample-zkey && yarn export:verifier"
+    "setup:tau": "sh scripts/setup-tau.sh",
+    "setup:addition": "sh scripts/setup-addition.sh"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
