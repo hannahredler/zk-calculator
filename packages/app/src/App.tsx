@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="w-screen h-screen flex flex-col items-center">
+      <div className="w-screen h-screen flex flex-col items-center bg-background text-white">
         <h1 className="my-5 font-semibold text-2xl">
           ZK Powered Verifiable Calculator
         </h1>
