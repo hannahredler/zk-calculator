@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.json", // Points to the base tsconfig in the root
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowJs": true,
     "rootDir": "./src", // Set the root directory for app's source files
     "outDir": "./dist", // Set the output directory for compiled files
     "baseUrl": ".", // Base URL for imports
@@ -12,6 +16,10 @@
     "resolveJsonModule": true, // Optional: allows importing JSON files in TypeScript
     "allowImportingTsExtensions": true,
     "noEmit": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
 
   "include": [
