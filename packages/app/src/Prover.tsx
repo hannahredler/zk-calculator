@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { groth16 } from "snarkjs";
+import { groth16, Groth16Proof } from "snarkjs";
 import { FC, useEffect } from "react";
 
 const Prover: FC<{ first: number | null; second: number | null }> = ({
@@ -7,8 +7,9 @@ const Prover: FC<{ first: number | null; second: number | null }> = ({
   second,
 }) => {
   const [disabled, setDisabled] = useState<boolean>(true);
-  const [proof, setProof] = useState<string | null>(null);
+  const [proof, setProof] = useState<Groth16Proof | null>(null);
   const [result, setResult] = useState<number | null>(null);
+  const [isValid, setIsValid] = useState<boolean | null>(null);
 
   useEffect(() => {
     setDisabled(first === null || second === null);
@@ -18,24 +19,43 @@ const Prover: FC<{ first: number | null; second: number | null }> = ({
     <>
       <button
         disabled={disabled}
-        className={`border border-px rounded p-2 ${
+        className={`border border-px border-green-500 rounded p-2 ${
           disabled ? "pointer-events-none" : "hover:bg-green-600"
         }`}
         onClick={async () => {
           if (!first || !second) return;
 
-          const res = await groth16.fullProve(
+          const { proof, publicSignals } = await groth16.fullProve(
             { x1: first, x2: second },
-            "./Addition.wasm",
-            "./Addition_final.zkey"
+            "Addition.wasm",
+            "Addition_final.zkey"
           );
 
-          setResult(Number(res.publicSignals[0]));
+          setResult(Number(publicSignals[0]));
+          setProof(proof);
         }}
       >
         Calculate and Prove!
       </button>
       <span>Result: {result}</span>
+      <button
+        className="border border-px border-blue-500 rounded p-2"
+        onClick={async () => {
+          const vkey = await fetch("Addition_final.zkey.json").then(function (
+            res
+          ) {
+            return res.json();
+          });
+
+          if (!result || !proof) return;
+
+          const res = await groth16.verify(vkey, [String(result)], proof);
+          setIsValid(res);
+        }}
+      >
+        Verify
+      </button>
+      {isValid !== null && <span>Is valid: {isValid ? "Yes" : "No"}</span>}
     </>
   );
 };

@@ -48,13 +48,22 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      snarkjs:
+        specifier: ^0.7.5
+        version: 0.7.5
     devDependencies:
+      '@types/node':
+        specifier: ^22.10.7
+        version: 22.10.7
       '@types/react':
         specifier: ^18.3.18
         version: 18.3.18
       '@types/react-dom':
         specifier: ^18.3.5
         version: 18.3.5(@types/react@18.3.18)
+      '@types/snarkjs':
+        specifier: ^0.7.9
+        version: 0.7.9
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.9(@types/node@22.10.7)(jiti@1.21.7)(yaml@2.7.0))
@@ -842,6 +851,9 @@ packages:
 
   '@types/secp256k1@4.0.6':
     resolution: {integrity: sha512-hHxJU6PAEUn0TP4S/ZOzuTUvJWuZ6eIKeNKb5RBpODvSl6hp1Wrw4s7ATY50rklRCScUDpHzVA/DQdSjJ3UoYQ==}
+
+  '@types/snarkjs@0.7.9':
+    resolution: {integrity: sha512-pb4Bq3GI2YQOQOG0dR/YuQs/mqcuL6k/vnz68LIPtpA2frrUL3twf69a3AUK9eUmNNeW0RIKkq6scDlC75Is+g==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -3232,6 +3244,8 @@ snapshots:
   '@types/secp256k1@4.0.6':
     dependencies:
       '@types/node': 22.10.7
+
+  '@types/snarkjs@0.7.9': {}
 
   '@types/stack-utils@2.0.3': {}
 
