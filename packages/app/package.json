@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "fetch-keys": "tsx scripts/fetch-keys.ts",
+    "build": "pnpm run fetch-keys && tsc -b && vite build",
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -16,8 +16,7 @@
     "@heroicons/react": "^2.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "snarkjs": "^0.7.5",
-    "ts-node": "^10.9.2"
+    "snarkjs": "^0.7.5"
   },
   "devDependencies": {
     "@types/node": "^22.10.7",

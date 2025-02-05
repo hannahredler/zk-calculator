@@ -4,23 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "setup:addition": "pnpm --filter circuits setup:addition",
+    "fetch-keys": "pnpm --filter app fetch-keys",
     "build": "pnpm -r build",
-    "dev": "pnpm -r dev",
-    "test": "pnpm -r test",
-    "lint": "pnpm -r lint"
-  },
-  "dependencies": {
-    "ts-node": "^10.9.2"
+    "update:tau": "pnpm --filter circuits setup:tau && pnpm --filter circuits setup:addition && pnpm fetch-keys",
+    "update:addition": "pnpm --filter circuits setup:addition && pnpm fetch-keys"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.7",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.17.0",
     "globals": "^15.14.0",
     "postcss": "^8.5.1",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.18.2",
-    "ts-node": "^10.9.2",
-    "@types/node": "^22.10.7"
+    "typescript-eslint": "^8.18.2"
   }
 }

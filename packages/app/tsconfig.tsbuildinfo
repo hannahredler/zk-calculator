@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/numberinput.tsx","./src/main.tsx","./vite-env.d.ts"],"errors":true,"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/numberinput.tsx","./src/prover.tsx","./src/main.tsx","./vite-env.d.ts"],"version":"5.6.3"}

@@ -5,8 +5,10 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const circuitsDir = path.join(__dirname, "../../circuits/");
-const publicDir = path.join(__dirname, "../public/");
+// Update paths to be relative to the project root
+const projectRoot = path.join(__dirname, "../../../");
+const circuitsDir = path.join(projectRoot, "packages/circuits/");
+const publicDir = path.join(projectRoot, "packages/app/public/");
 
 // Ensure public directory exists
 if (!fs.existsSync(publicDir)) {

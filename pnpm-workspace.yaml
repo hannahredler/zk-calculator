@@ -1,2 +1,3 @@
 packages:
   - "packages/*" # Includes all subfolders in `packages/`
+  - "!packages/*/node_modules" #
