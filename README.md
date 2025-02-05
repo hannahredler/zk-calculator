@@ -28,6 +28,12 @@ Circuits:
 
 ## Setup
 
+## Prerequisites
+
+- Node.js (v18 or higher)
+- pnpm (v8 or higher)
+- Git
+
 ### Step 0: Clone repository
 
 ```bash
