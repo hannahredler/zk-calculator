@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { PlusCircleIcon, EqualsIcon } from "@heroicons/react/16/solid";
+import { useState, useEffect, FC } from "react";
+import { PlusIcon, EqualsIcon } from "@heroicons/react/16/solid";
 import { NumberInput } from "./components/NumberInput";
 import { groth16, Groth16Proof } from "snarkjs";
 import PrimaryButton from "./components/PrimaryButton";
 import { proveAddition } from "./utils";
-
+import { ProofDisplay } from "./ProofDisplay";
 function App() {
   const [first, setFirst] = useState<number | null>(null);
   const [second, setSecond] = useState<number | null>(null);
@@ -34,13 +34,14 @@ function App() {
   };
 
   useEffect(() => {
+    setIsValid(null);
     prove(first, second);
   }, [first, second]);
 
   return (
     <>
       <div className="w-screen h-screen flex flex-col items-center bg-background text-white">
-        <div className="flex flex-col items-start justify-center my-20 p-5">
+        <div className="flex flex-col items-start justify-center my-20 p-5 w-1/3">
           <h1 className="font-semibold text-2xl mb-10">
             ZK Powered Verifiable Calculator
           </h1>
@@ -48,37 +49,47 @@ function App() {
           <div className="flex flex-row gap-2 mb-5 items-center">
             <NumberInput label="First value" setValue={setFirst} />
             <div className="flex flex-col items-center justify-end">
-              <PlusCircleIcon className="h-5 w-5" />
+              <PlusIcon className="h-5 w-5" />
             </div>
             <NumberInput label="Second value" setValue={setSecond} />
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-row items-center gap-2">
-              <EqualsIcon className="h-5 w-5" />
-              <span>{result}</span>
+          <div className="flex flex-col">
+            <div className="flex flex-row items-start justify-start gap-3 mb-5">
+              <div className="flex flex-row items-center gap-2 text-primary h-6">
+                <EqualsIcon className="h-5 w-5" />
+                <span className="">{result}</span>
+              </div>
+              <ProofDisplay proof={proof} />
             </div>
 
-            {result && (
-              <>
-                <div className="flex flex-row gap-2">
-                  <PrimaryButton onClick={() => verify(result, proof)}>
-                    Verify
-                  </PrimaryButton>
-                </div>
+            <div className="flex flex-row items-center gap-4">
+              <PrimaryButton
+                onClick={() => verify(result!, proof!)}
+                disabled={!result || !proof}
+              >
+                Verify
+              </PrimaryButton>
 
-                <div className="flex flex-row">
-                  {isValid !== null && (
-                    <span>
-                      Is valid:{" "}
-                      <span className="text-accent">
-                        {isValid ? "Yes" : "No"}
-                      </span>
-                    </span>
-                  )}
-                </div>
-              </>
-            )}
+              <span className="text-sm">
+                Status:{" "}
+                <span
+                  className={`${
+                    isValid === null
+                      ? "text-gray-400"
+                      : isValid
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {isValid === null
+                    ? "Not verified"
+                    : isValid
+                    ? "Valid ✓"
+                    : "Invalid ✗"}
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
