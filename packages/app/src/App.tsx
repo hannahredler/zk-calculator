@@ -5,6 +5,8 @@ import { groth16, Groth16Proof } from "snarkjs";
 import PrimaryButton from "./components/PrimaryButton";
 import { proveAddition } from "./utils";
 import { ProofDisplay } from "./ProofDisplay";
+import { VerificationStatus } from "./VerificationStatus";
+
 function App() {
   const [first, setFirst] = useState<number | null>(null);
   const [second, setSecond] = useState<number | null>(null);
@@ -70,25 +72,7 @@ function App() {
               >
                 Verify
               </PrimaryButton>
-
-              <span className="text-sm">
-                Status:{" "}
-                <span
-                  className={`${
-                    isValid === null
-                      ? "text-gray-400"
-                      : isValid
-                      ? "text-green-400"
-                      : "text-red-400"
-                  }`}
-                >
-                  {isValid === null
-                    ? "Not verified"
-                    : isValid
-                    ? "Valid ✓"
-                    : "Invalid ✗"}
-                </span>
-              </span>
+              <VerificationStatus isValid={isValid} />
             </div>
           </div>
         </div>
