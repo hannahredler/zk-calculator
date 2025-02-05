@@ -1,4 +1,4 @@
-# ZK Calculator!
+# ZK Calculator
 
 A simple calculator that uses zkSNARKs to prove the correctness of the addition operation.
 
@@ -50,7 +50,7 @@ pnpm run dev
 
 This will load the app in your browser. You can now use the app to add two numbers together and prove the correctness of the operation using zkSNARKs.
 
-### (Optional) Update the trusted setup:
+### Step 3: (Optional) Update the trusted setup:
 
 To update the trusted setup, you can run:
 
@@ -60,4 +60,4 @@ pnpm run setup:tau
 
 You will be prompted to add text several times, to simulate the process of having multiple users contribute to the trusted setup via a shared secret.
 
-NB: This is not a real-world scenario, as a powers of tau ceremony requires many participants from many different machines, so as to minimize the risk of collusion. Here we simulate the ceremony for demonstration purposes only.
+_NB: This is not a real-world scenario, as a powers of tau ceremony requires many participants from many different machines, so as to minimize the risk of collusion. Here we simulate the ceremony for demonstration purposes only._

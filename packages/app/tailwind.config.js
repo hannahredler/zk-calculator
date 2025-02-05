@@ -10,6 +10,9 @@ export default {
         accent: "#FF00FF",
         highlight: "#FFDD00",
       },
+      boxShadow: {
+        primary: "0 0 10px var(--primary)",
+      },
     },
   },
   plugins: [],
