@@ -2,6 +2,10 @@
 
 A simple calculator that uses zkSNARKs to prove the correctness of the addition operation.
 
+Enter two numbers, and the application will calculate the answer as well as a ZK proof of the solution, which can then be used to verify the calculation is correct.
+
+This implementation utilises Groth-16.
+
 ## Technologies
 
 Monorepo:
