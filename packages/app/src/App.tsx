@@ -1,11 +1,11 @@
 import { useState, useEffect, FC } from "react";
 import { PlusIcon, EqualsIcon } from "@heroicons/react/16/solid";
 import { NumberInput } from "./components/NumberInput";
-import { groth16, Groth16Proof } from "snarkjs";
+import { Groth16Proof } from "snarkjs";
 import PrimaryButton from "./components/PrimaryButton";
-import { proveAddition } from "./utils";
-import { ProofDisplay } from "./ProofDisplay";
-import { VerificationStatus } from "./VerificationStatus";
+import { proveAddition, verifyAddition } from "./lib/proof";
+import { ProofDisplay } from "./components/ProofDisplay";
+import { VerificationStatus } from "./components/VerificationStatus";
 
 function App() {
   const [first, setFirst] = useState<number | null>(null);
@@ -17,10 +17,7 @@ function App() {
   const verify = async (result: number | null, proof: Groth16Proof | null) => {
     if (!result || !proof) return;
 
-    const vkey = await fetch("Addition_final.zkey.json").then((res) =>
-      res.json()
-    );
-    const isValid = await groth16.verify(vkey, [String(result)], proof);
+    const isValid = await verifyAddition(result, proof);
     setIsValid(isValid);
   };
 
@@ -31,8 +28,8 @@ function App() {
       return;
     }
     let [res, proof] = await proveAddition(first, second);
-    setResult(Number(res));
-    setProof(proof as Groth16Proof);
+    setResult(res);
+    setProof(proof);
   };
 
   useEffect(() => {

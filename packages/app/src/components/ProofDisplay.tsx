@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Groth16Proof } from "snarkjs";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { truncate } from "./utils";
+import { truncate } from "../lib/string";
 
 export const ProofDisplay: FC<{ proof: Groth16Proof | null }> = ({ proof }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
