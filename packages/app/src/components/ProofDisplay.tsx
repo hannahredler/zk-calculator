@@ -1,10 +1,15 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Groth16Proof } from "snarkjs";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { truncate } from "../lib/string";
 
 export const ProofDisplay: FC<{ proof: Groth16Proof | null }> = ({ proof }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    proof === null && setIsOpen(false);
+  }, [proof]);
+
   return (
     proof && (
       <div className="flex flex-col">

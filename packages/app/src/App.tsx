@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <div className="w-screen h-screen flex flex-col items-center bg-background text-white">
-        <div className="flex flex-col items-start justify-center my-20 p-5 w-1/3">
+        <div className="flex flex-col items-start justify-center my-20 p-5  w-3/4 sm:w-[600px]">
           <h1 className="font-semibold text-2xl mb-10">
             ZK Powered Verifiable Calculator
           </h1>
