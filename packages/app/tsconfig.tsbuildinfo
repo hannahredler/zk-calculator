@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/numberinput.tsx","./src/prover.tsx","./src/main.tsx","./vite-env.d.ts"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/prover.tsx","./src/main.tsx","./src/components/numberinput.tsx","./src/components/primarybutton.tsx","./src/components/proofdisplay.tsx","./src/components/verificationstatus.tsx","./src/lib/proof.ts","./src/lib/string.ts","./vite-env.d.ts"],"version":"5.6.3"}

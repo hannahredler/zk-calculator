@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "setup:addition": "pnpm --filter circuits setup:addition",
+    "setup:circuits": "pnpm --filter circuits setup:circuits",
     "fetch-keys": "pnpm --filter app fetch-keys",
     "build": "pnpm -r build",
-    "update:tau": "pnpm --filter circuits setup:tau && pnpm --filter circuits setup:addition && pnpm fetch-keys",
-    "update:addition": "pnpm --filter circuits setup:addition && pnpm fetch-keys"
+    "update:tau": "pnpm --filter circuits setup:tau && pnpm --filter circuits setup:circuits && pnpm fetch-keys",
+    "update:addition": "pnpm --filter circuits setup:circuits && pnpm fetch-keys",
+    "start": "pnpm --filter app dev"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

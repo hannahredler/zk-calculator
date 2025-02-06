@@ -15,7 +15,7 @@ export const ProofDisplay: FC<{ proof: Groth16Proof | null }> = ({ proof }) => {
       <div className="flex flex-col">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex flex-row items-center gap-2 hover:text-accent transition-colors"
+          className="flex flex-row items-center gap-2 hover:text-accent transition-colors text-sm "
         >
           Proof
           <ChevronDownIcon
@@ -25,11 +25,11 @@ export const ProofDisplay: FC<{ proof: Groth16Proof | null }> = ({ proof }) => {
           />
         </button>
         <div
-          className={`overflow-hidden transition-all duration-300 ${
+          className={`overflow-hidden transition-all duration-300 text-sm  ${
             isOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="flex flex-col text-sm">
+          <div className="flex flex-col text-gray-300 ml-3">
             <span>Curve: {proof?.curve}</span>
             <span>Protocol: {proof?.protocol}</span>
             <span>

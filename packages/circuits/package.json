@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup:tau": "sh scripts/setup-tau.sh",
-    "setup:addition": "sh scripts/setup-addition.sh"
+    "setup:circuits": "sh scripts/setup-circuits.sh"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",

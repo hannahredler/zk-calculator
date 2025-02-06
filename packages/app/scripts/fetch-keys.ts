@@ -30,8 +30,6 @@ circuits.forEach((circuit) => {
     const sourcePath = path.join(circuitDir, file[0]);
     const destPath = path.join(publicDir, file[1]);
 
-    console.log(sourcePath);
-
     if (fs.existsSync(sourcePath)) {
       fs.copyFileSync(sourcePath, destPath);
       console.log(`Copied ${file[0]} to public directory`);

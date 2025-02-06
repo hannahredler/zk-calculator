@@ -55,7 +55,7 @@ This will install all dependencies for the monorepo.
 From the root of the repository, run:
 
 ```bash
-pnpm run dev
+pnpm run start
 ```
 
 This will load the app in your browser. You can now use the app to add two numbers together and prove the correctness of the operation using zkSNARKs.
