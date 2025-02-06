@@ -1,28 +1,19 @@
-import { useState, useEffect, FC } from "react";
-import { PlusIcon, MinusIcon, EqualsIcon } from "@heroicons/react/16/solid";
-import { NumberInput } from "./components/NumberInput";
+import { useState, useEffect } from "react";
+import { EqualsIcon } from "@heroicons/react/16/solid";
 import { Groth16Proof } from "snarkjs";
-import PrimaryButton from "./components/PrimaryButton";
 import { prove, verify } from "./lib/proof";
+import PrimaryButton from "./components/PrimaryButton";
+import { NumberInput } from "./components/NumberInput";
 import { ProofDisplay } from "./components/ProofDisplay";
 import { VerificationStatus } from "./components/VerificationStatus";
-import { Operation, OPERATIONS } from "./Prover";
+import { OperatorDisplay } from "./components/OperatorDisplay";
+import { Operation, OPERATIONS } from "./lib/proof";
 import clsx from "clsx";
-
-const OperatorDisplay: FC<{ operation: Operation }> = ({ operation }) => {
-  const className = "h-5 w-5";
-
-  return (
-    <div className="flex flex-col items-center justify-end">
-      {operation === "Addition" && <PlusIcon className={className} />}
-      {operation === "Subtraction" && <MinusIcon className={className} />}
-    </div>
-  );
-};
 
 function App() {
   const [first, setFirst] = useState<number | null>(null);
   const [second, setSecond] = useState<number | null>(null);
+
   const [proof, setProof] = useState<Groth16Proof | null>(null);
   const [result, setResult] = useState<bigint | null>(null);
   const [isValid, setIsValid] = useState<boolean | null>(null);

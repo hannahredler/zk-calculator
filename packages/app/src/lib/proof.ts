@@ -1,5 +1,7 @@
 import { groth16, Groth16Proof } from "snarkjs";
-import { Operation } from "@app/Prover";
+
+export const OPERATIONS = ["Addition", "Subtraction"] as const;
+export type Operation = (typeof OPERATIONS)[number];
 
 const FIELD_SIZE = BigInt(
   "21888242871839275222246405745257275088548364400416034343698204186575808495617"
